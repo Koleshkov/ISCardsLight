@@ -5,8 +5,15 @@
 @inject PassengerCardPageModel pagemodel;
 
 <div>
-    <EditForm Model="@pagemodel.PassengerCard" class="card_form" OnValidSubmit="@(()=>pagemodel.CreateCardAction())">
+    <Spinner IsVisible="pagemodel.IsVisibleSpinner" />
+    <EditForm Model="@pagemodel.PassengerCard" class="card_form"
+              OnValidSubmit="@(async ()=> await pagemodel.CreateCardAction())"
+              OnInvalidSubmit="@(()=>pagemodel.IsVisibleMessageBox=true)" >
         <DataAnnotationsValidator />
+        <MessageBox ButtonTitle="Ok" Title="Исправте" IsVisibale="@pagemodel.IsVisibleMessageBox">
+            <ValidationSummary />
+        </MessageBox>
+
         <label class="form_title">Карта наблюдения пассажира</label>
 
         <StackLayout Orientation="Horizontal">
@@ -25,44 +32,45 @@
                 <label class="title">Кто составил?</label>
                 <div class="input_group">
                     <label class="input_title">Фамилия:</label>
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.SecondName)" />
                     <InputText class="form-control" Placeholder="Иванов"
-                               @bind-Value="@pagemodel.PassengerCard.Creator.FirstName" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Creator.FirstName)" />
+                               @bind-Value="@pagemodel.PassengerCard.SecondName" />
                 </div>
                 <div class="input_group">
                     <label class="input_title">Имя:</label>
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.FirstName)" />
                     <InputText class="form-control" Placeholder="Иван"
-                               @bind-Value="@pagemodel.PassengerCard.Creator.SecondName" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Creator.SecondName)" />
+                               @bind-Value="@pagemodel.PassengerCard.FirstName" />
                 </div>
                 <div class="input_group">
                     <label class="input_title">Отчество:</label>
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.MiddleName)" />
                     <InputText class="form-control" Placeholder="Иванович"
-                               @bind-Value="@pagemodel.PassengerCard.Creator.MiddleName" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Creator.MiddleName)" />
+                               @bind-Value="@pagemodel.PassengerCard.MiddleName" />
+                   
                 </div>
                 <label class="title">Информация о транспортном средстве</label>
                 <div class="input_group">
                     <label class="input_title">Наименование подрядной организации:</label>
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NameOfOrganization)" />
                     <InputText class="form-control" Placeholder="OOO Транспорт"
                                @bind-Value="@pagemodel.PassengerCard.NameOfOrganization" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NameOfOrganization)" />
                 </div>
                 <div class="input_group">
                     <label class="input_title">Номер транспортного средства:</label>
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
                     <InputText class="form-control" Placeholder="A123AA 99"
                                @bind-Value="@pagemodel.PassengerCard.NumberOfAuto" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
                 </div>
                 <div class="input_group">
                     <label class="input_title">Тип транспортного средства:</label>
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
                     <InputSelect class="form-control" @bind-Value="@pagemodel.PassengerCard.TypeOfAuto" itemid="0">
                         <option value="0">Легковой а/м</option>
                         <option value="1">Автобус</option>
                         <option value="2">Грузовой а/м</option>
                         <option value="3">Прочие т/c</option>
                     </InputSelect>
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
                 </div>
 
 
@@ -223,23 +231,26 @@
                 <div class="input_group">
                     <InputTextArea class="form-control" rows="6"
                                    @bind-Value="@pagemodel.PassengerCard.PassengerComment" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.PassengerComment)" />
                 </div>
                 <label class="title">Незамедлительные действия:</label>
                 <div class="input_group">
                     <InputTextArea class="form-control" rows="6"
                                    @bind-Value="@pagemodel.PassengerCard.Actions" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Actions)" />
                 </div>
-                
+
                 <label class="title">Ответсвенный</label>
                 <div class="input_group">
                     <label class="input_title">ФИО:</label>
                     <InputText class="form-control" Placeholder="Иванов Иван Иванович"
                                @bind-Value="@pagemodel.PassengerCard.Responsible" />
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Responsible)" />
                 </div>
-                
+
+                <div class="input_group">
+                    <label class="input_title">Срок исполнения:</label>
+                    <InputDate class="form-control" Placeholder="Иванов Иван Иванович"
+                               @bind-Value="@pagemodel.PassengerCard.Deadline" />
+                </div>
+
             </StackLayout>
         </StackLayout>
 

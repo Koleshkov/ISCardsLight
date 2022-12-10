@@ -21,7 +21,7 @@ namespace ISCardsLight.Services.PassengerCardServices
         {
             try
             {
-                
+
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
                 using (ExcelPackage package = new(await client.GetStreamAsync("templates/PassengerCard.xlsx")))
@@ -125,9 +125,9 @@ namespace ISCardsLight.Services.PassengerCardServices
                     worksheet.Cells["AL16"].Value = passengerCard.PassengerComment;
                     worksheet.Cells["AL36"].Value = passengerCard.Actions;
                     worksheet.Cells["AT69"].Value = passengerCard.Responsible;
-                    worksheet.Cells["AV71"].Value = passengerCard.Deadline.ToShortDateString();
+                    worksheet.Cells["AV71"].Value = passengerCard.Deadline==null ? "" : ((DateTime)passengerCard.Deadline).ToShortDateString();
 
-                    worksheet.Cells["AO77"].Value = passengerCard.Creator.FullName;
+                    worksheet.Cells["AO77"].Value = passengerCard.FullName;
                     worksheet.Cells["AV81"].Value = passengerCard.CreationDate.ToShortDateString();
 
 
@@ -142,7 +142,7 @@ namespace ISCardsLight.Services.PassengerCardServices
                 }
                 return await Task.FromResult(true);
             }
-            catch(Exception msg)
+            catch
             {
                 return await Task.FromResult(false);
             }

@@ -6,6 +6,9 @@ namespace ISCardsLight.PageModels
     public class PassengerCardPageModel
     {
         public PassengerCard PassengerCard { get; set; } = new();
+        public bool IsVisibleSpinner { get; set; }
+
+        public bool IsVisibleMessageBox { get; set; }
 
         private readonly IPassengerCardService passengerCardService;
 
@@ -16,8 +19,10 @@ namespace ISCardsLight.PageModels
 
         public async Task CreateCardAction()
         {
+            IsVisibleSpinner=true;
             await passengerCardService.SendPassagnerCardAsync(PassengerCard);
-            await Task.CompletedTask;
+            IsVisibleSpinner=false;
+            
         }
     }
 }

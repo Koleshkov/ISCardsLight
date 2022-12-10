@@ -10,13 +10,13 @@ namespace ISCardsLight.Models
     {
         public PassengerCard() : base(cardType: "КНП") { }
 
-        public override string CardName => new string($"{CreationDate.ToShortDateString()}_{CardType}_{Creator.ShortName}");
+        public override string CardName => new string($"{CreationDate.ToShortDateString()}_{CardType}_{ShortName}");
         public bool WorkStopped { get; set; }
 
-        [Required(ErrorMessage = "Поле обязательно для заполнения.")]
-
+        [Required(ErrorMessage = "Введите название организации")]
         public string NameOfOrganization { get; set; } = "";
-        [Required(ErrorMessage = "Поле обязательно для заполнения.")]
+
+        [Required(ErrorMessage = "Ввкдите гос. номер автомобиля")]
         public string NumberOfAuto { get; set; } = "";
         public string TypeOfAuto { get; set; } = "0";
         public bool EmergencyKit { get; set; } = true;

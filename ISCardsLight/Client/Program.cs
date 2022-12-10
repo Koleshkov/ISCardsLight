@@ -24,7 +24,7 @@ namespace ISCardsLight
             //Add PageModels
             var serviceProvider = services.BuildServiceProvider();
 
-            services.AddSingleton(new PassengerCardPageModel(services.BuildServiceProvider().GetRequiredService<IPassengerCardService>()));
+            services.AddTransient<PassengerCardPageModel>();
 
             await builder.Build().RunAsync();
         }
