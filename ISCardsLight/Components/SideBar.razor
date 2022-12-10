@@ -1,0 +1,21 @@
+﻿
+<div class="sidebar_body"/>
+<div class="sidebar">
+    <div class="sidebar_menu">
+        <NavLink class="sidebar_menu_item" href="" Match="NavLinkMatch.All">
+            <span class="oi oi-person"></span>
+            <span class="sidebar_menu_item_title">Карта пассажира</span>
+        </NavLink>
+        <NavLink class="sidebar_menu_item" href="SafetyCard" >
+            <span class="oi oi-people"></span>
+            <span class="sidebar_menu_item_title">Карта фиксации</span>
+        </NavLink>
+        
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

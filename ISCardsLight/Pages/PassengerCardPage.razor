@@ -1,0 +1,250 @@
+﻿@page "/"
+@page "/PassengerCard"
+
+@using ISCardsLight.PageModels
+@inject PassengerCardPageModel pagemodel;
+
+<div>
+    <EditForm Model="@pagemodel.PassengerCard" class="card_form" OnValidSubmit="@(()=>pagemodel.CreateCardAction())">
+        <DataAnnotationsValidator />
+        <label class="form_title">Карта наблюдения пассажира</label>
+
+        <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Vertical">
+
+                <div class="job_is_stopped_container">
+                    <label class="title">Работа остановлена?</label>
+                    <div class="red_rectangle">
+                        <div class="job_is_stopped_check">
+                            <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.WorkStopped" />
+                            <label class="job_is_stopped_title">Да</label>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="title">Кто составил?</label>
+                <div class="input_group">
+                    <label class="input_title">Фамилия:</label>
+                    <InputText class="form-control" Placeholder="Иванов"
+                               @bind-Value="@pagemodel.PassengerCard.Creator.FirstName" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Creator.FirstName)" />
+                </div>
+                <div class="input_group">
+                    <label class="input_title">Имя:</label>
+                    <InputText class="form-control" Placeholder="Иван"
+                               @bind-Value="@pagemodel.PassengerCard.Creator.SecondName" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Creator.SecondName)" />
+                </div>
+                <div class="input_group">
+                    <label class="input_title">Отчество:</label>
+                    <InputText class="form-control" Placeholder="Иванович"
+                               @bind-Value="@pagemodel.PassengerCard.Creator.MiddleName" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Creator.MiddleName)" />
+                </div>
+                <label class="title">Информация о транспортном средстве</label>
+                <div class="input_group">
+                    <label class="input_title">Наименование подрядной организации:</label>
+                    <InputText class="form-control" Placeholder="OOO Транспорт"
+                               @bind-Value="@pagemodel.PassengerCard.NameOfOrganization" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NameOfOrganization)" />
+                </div>
+                <div class="input_group">
+                    <label class="input_title">Номер транспортного средства:</label>
+                    <InputText class="form-control" Placeholder="A123AA 99"
+                               @bind-Value="@pagemodel.PassengerCard.NumberOfAuto" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
+                </div>
+                <div class="input_group">
+                    <label class="input_title">Тип транспортного средства:</label>
+                    <InputSelect class="form-control" @bind-Value="@pagemodel.PassengerCard.TypeOfAuto" itemid="0">
+                        <option value="0">Легковой а/м</option>
+                        <option value="1">Автобус</option>
+                        <option value="2">Грузовой а/м</option>
+                        <option value="3">Прочие т/c</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
+                </div>
+
+
+                <label class="title">Оценка действий водителя при управлении Т/С</label>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.SafeLaneChange" />
+                    <label class="form-check-label">Безопасное перестроение из ряда в ряд.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.KeepingDistance" />
+                    <label class="form-check-label">Соблюдает безопасную дистанцию.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.SpeedLimit" />
+                    <label class="form-check-label">Не превышает установленную скорость.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.SafeBehavior" />
+                    <label class="form-check-label">Демонстрирует безопасное поведение.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.NoCell" />
+                    <label class="form-check-label">Не пользуется мобильным телефоном.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.ControlOfAuto" />
+                    <label class="form-check-label">Контролирует ТС на дороге и в плотном транспортном потоке.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.NotEat" />
+                    <label class="form-check-label">Не принимает пищу за рулем.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.UnderstandsRoadConditions" />
+                    <label class="form-check-label">Учитывает дорожные условия.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.RoadSignRequirements" />
+                    <label class="form-check-label">Выполняет требования дорожных знаков разметки и светофоров.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.TimelyTurnOffTheLights" />
+                    <label class="form-check-label">Своевременно включает световые приборы и сигналы поворота:</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.AttentionToPedestrians" />
+                    <label class="form-check-label">Внимательно относится к пешеходам.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.GiveWay" />
+                    <label class="form-check-label">Уступает движущемся транспортным средствам, имеющим приоритет.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.AutoSafelyInReverse" />
+                    <label class="form-check-label">Безопасно управляет Т/C задним ходом.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.HandbrakeUsing" />
+                    <label class="form-check-label">При остановке использует ручной тормоз.</label>
+
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.RestRegime" />
+                    <label class="form-check-label">Соблюдает режи труда и отдыха.</label>
+                </div>
+
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+
+                <label class="title">Осмотр Т/C</label>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.EmergencyKit" />
+                    <label class="form-check-label">Наличие в ТС аварийного комплекта.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.MonitoringSystem" />
+                    <label class="form-check-label">Наличие в БСМТС.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.ForeignObjects" />
+                    <label class="form-check-label">Наличие постронних предметов в зоне обзора водителя.</label>
+
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.RoutePassport" />
+                    <label class="form-check-label">Наличие плана поездки.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.BusPassport" />
+                    <label class="form-check-label">Наличие паспорта автобусного маршрута.</label>
+
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.SeatBeltsFastened" />
+                    <label class="form-check-label">Водитель и пассажир престёгнуты ремнями.</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.CargoFixed" />
+                    <label class="form-check-label">Груз зафиксирован.</label>
+                </div>
+
+                <label class="title">Дорожные условия:</label>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Clear" />
+                    <label class="form-check-label">Ясно</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Snow" />
+                    <label class="form-check-label">Снег</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Cloud" />
+                    <label class="form-check-label">Облачно</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.RainHail" />
+                    <label class="form-check-label">Дождь/град</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Sun" />
+                    <label class="form-check-label">Солнечно</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Night" />
+                    <label class="form-check-label">Темное время суток</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Rain" />
+                    <label class="form-check-label">Дождь</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Dirt" />
+                    <label class="form-check-label">Грязь</label>
+                </div>
+
+                <label class="title">Дорожное покрытие:</label>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Asphalt" />
+                    <label class="form-check-label">Асфальт</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Ice" />
+                    <label class="form-check-label">Гололед</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Gravel" />
+                    <label class="form-check-label">Гравийное</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.OffRoad" />
+                    <label class="form-check-label">Бездорожье</label>
+                </div>
+                <div class="input_group">
+                    <InputCheckbox class="form-check-input" @bind-Value="@pagemodel.PassengerCard.Ground" />
+                    <label class="form-check-label">Грунтовое</label>
+                </div>
+                <label class="title">Коментарий пассажира:</label>
+                <div class="input_group">
+                    <InputTextArea class="form-control" rows="6"
+                                   @bind-Value="@pagemodel.PassengerCard.PassengerComment" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.PassengerComment)" />
+                </div>
+                <label class="title">Незамедлительные действия:</label>
+                <div class="input_group">
+                    <InputTextArea class="form-control" rows="6"
+                                   @bind-Value="@pagemodel.PassengerCard.Actions" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Actions)" />
+                </div>
+                
+                <label class="title">Ответсвенный</label>
+                <div class="input_group">
+                    <label class="input_title">ФИО:</label>
+                    <InputText class="form-control" Placeholder="Иванов Иван Иванович"
+                               @bind-Value="@pagemodel.PassengerCard.Responsible" />
+                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.Responsible)" />
+                </div>
+                
+            </StackLayout>
+        </StackLayout>
+
+        <div class="input_btn_group">
+            <input type="submit" class="btn btn-warning" value="Создать карту" />
+        </div>
+    </EditForm>
+</div>
