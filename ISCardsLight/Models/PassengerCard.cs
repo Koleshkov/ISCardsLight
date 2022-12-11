@@ -16,7 +16,7 @@ namespace ISCardsLight.Models
         [Required(ErrorMessage = "Введите название организации")]
         public string NameOfOrganization { get; set; } = "";
 
-        [Required(ErrorMessage = "Ввкдите гос. номер автомобиля")]
+        [Required(ErrorMessage = "Введите гос. номер автомобиля")]
         public string NumberOfAuto { get; set; } = "";
         public string TypeOfAuto { get; set; } = "0";
         public bool EmergencyKit { get; set; } = true;

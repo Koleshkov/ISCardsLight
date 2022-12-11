@@ -7,11 +7,12 @@
 <div>
     <Spinner IsVisible="pagemodel.IsVisibleSpinner" />
     <EditForm Model="@pagemodel.PassengerCard" class="card_form"
-              OnValidSubmit="@(async ()=> await pagemodel.CreateCardAction())"
-              OnInvalidSubmit="@(()=>pagemodel.IsVisibleMessageBox=true)" >
+              OnValidSubmit="@(async()=> await pagemodel.CreateCardAction())"
+              OnInvalidSubmit="@(()=>pagemodel.IsVisibleMessageBox=true)">
+              
         <DataAnnotationsValidator />
-        <MessageBox ButtonTitle="Ok" Title="Исправте" IsVisibale="@pagemodel.IsVisibleMessageBox">
-            <ValidationSummary />
+        <MessageBox ButtonTitle="Ok" Title="Исправте" IsVisibale="@pagemodel.IsVisibleMessageBox" ButtonAction="@(()=>pagemodel.CloseMessageBox())">
+            <ValidationSummary/>
         </MessageBox>
 
         <label class="form_title">Карта наблюдения пассажира</label>
@@ -64,7 +65,6 @@
                 </div>
                 <div class="input_group">
                     <label class="input_title">Тип транспортного средства:</label>
-                    <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
                     <InputSelect class="form-control" @bind-Value="@pagemodel.PassengerCard.TypeOfAuto" itemid="0">
                         <option value="0">Легковой а/м</option>
                         <option value="1">Автобус</option>
@@ -253,9 +253,9 @@
 
             </StackLayout>
         </StackLayout>
-
+        <ValidationSummary />
         <div class="input_btn_group">
-            <input type="submit" class="btn btn-warning" value="Создать карту" />
+            <input type="submit"  class="btn btn-warning" value="Создать карту" />
         </div>
     </EditForm>
 </div>

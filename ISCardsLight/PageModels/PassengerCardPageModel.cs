@@ -24,5 +24,7 @@ namespace ISCardsLight.PageModels
             IsVisibleSpinner=false;
             
         }
+
+        public void CloseMessageBox() => IsVisibleMessageBox=false;
     }
 }
