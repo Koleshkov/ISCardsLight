@@ -70,8 +70,10 @@ a, .btn-link {
     left: 0;
     right: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction:column;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
 }
 
 .spinner {
