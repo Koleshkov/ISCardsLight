@@ -37,7 +37,6 @@ namespace ISCardsLight.Services.PassengerCardServices
                     worksheet.Cells["S20"].Value=passengerCard.TypeOfAuto=="2" ? "V" : "";
                     worksheet.Cells["s22"].Value=passengerCard.TypeOfAuto=="3" ? "V" : "";
 
-
                     if (passengerCard.EmergencyKit) worksheet.Cells["AB30"].Value="V";
                     else worksheet.Cells["AE30"].Value="V";
 
@@ -129,8 +128,6 @@ namespace ISCardsLight.Services.PassengerCardServices
 
                     worksheet.Cells["AO77"].Value = passengerCard.FullName;
                     worksheet.Cells["AV81"].Value = passengerCard.CreationDate.ToShortDateString();
-
-
 
                     buffer = await package.GetAsByteArrayAsync();
 

@@ -1,12 +1,13 @@
 ﻿@inherits LayoutComponentBase
 
-<StackLayout Orientation="Vertical">
+<div class="vertical_stacklayout">
     <NavBar Title="ISCards" />
-    <StackLayout Orientation="Horizontal">
+    <div class="horizontal_stacklayout">
         <SideBar />
-        <StackLayout Orientation="Vertical">
+        <div class="vertical_stacklayout">
             @Body
-        </StackLayout>
-    </StackLayout>
+        </div>
+        
+    </div>
 
-</StackLayout>
+</div>
