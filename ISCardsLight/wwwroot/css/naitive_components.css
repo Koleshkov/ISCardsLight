@@ -8,8 +8,7 @@
 }
 
     .sidebar_menu_item:hover {
-        color: #fff;
-        background-color: #4E4E50;
+        color: #96969A;
         transition: 0.2s;
     }
 
@@ -20,7 +19,7 @@
     }
 
     .sidebar_menu_item.active {
-        background-color: #F6C344;
+        color: #F5C344;
         transition: 0.2s;
     }
 
@@ -31,32 +30,38 @@
     }
 
 
-.content_container{
-    padding:10px;
+.content_container {
+    padding: 10px;
 }
 
 .card_form {
     padding: 10px;
-    margin:10px;
+    margin: 10px;
     background-color: #ECECEC;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
-.validation_msg{
-    font-size:9pt;
+
+.validation_msg {
+    font-size: 9pt;
 }
 
 
 @media (max-width:960px) {
-   
-
     .sidebar_menu_item {
-        display:flex;
-        justify-content:center;
-        flex-direction:row;
-        padding:10px;
-        margin:10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
     }
 
+        .sidebar_menu_item:hover {
+            color: #96969A;
+            transition: 0.2s;
+        }
+
+        .sidebar_menu_item.active {
+            color: #F5C344;
+            transition: 0.2s;
+        }
 }
