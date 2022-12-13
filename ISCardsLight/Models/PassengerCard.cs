@@ -10,7 +10,7 @@ namespace ISCardsLight.Models
     {
         public PassengerCard() : base(cardType: "КНП") { }
 
-        public override string CardName => new string($"{CreationDate.ToShortDateString()}_{CardType}_{ShortName}");
+        public override string CardName => $"{CreationDate.ToShortDateString()}_{CardType}_{ShortName}";
         public bool WorkStopped { get; set; }
 
         [Required(ErrorMessage = "Введите название организации")]

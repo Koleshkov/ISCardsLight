@@ -1,14 +1,13 @@
 ﻿using ISCardsLight.Models;
+using ISCardsLight.Pages;
 using ISCardsLight.Services.PassengerCardServices;
 
 namespace ISCardsLight.PageModels
 {
-    public class PassengerCardPageModel
+    public class PassengerCardPageModel : PageModelBase
     {
         public PassengerCard PassengerCard { get; set; } = new();
-        public bool IsVisibleSpinner { get; set; }
 
-        public bool IsVisibleMessageBox { get; set; }
 
         private readonly IPassengerCardService passengerCardService;
 
@@ -17,14 +16,12 @@ namespace ISCardsLight.PageModels
             this.passengerCardService=passengerCardService;
         }
 
-        public async Task CreateCardAction()
+        public override async Task CreateCardAsync()
         {
             IsVisibleSpinner=true;
-            await passengerCardService.SendPassagnerCardAsync(PassengerCard);
+            await passengerCardService.CreatePassagnerCardAsync(PassengerCard);
             IsVisibleSpinner=false;
-            
-        }
 
-        public void CloseMessageBox() => IsVisibleMessageBox=false;
+        }
     }
 }

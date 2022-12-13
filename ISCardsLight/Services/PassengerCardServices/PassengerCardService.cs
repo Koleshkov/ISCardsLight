@@ -17,7 +17,7 @@ namespace ISCardsLight.Services.PassengerCardServices
         }
 
 
-        public async Task<bool> SendPassagnerCardAsync(PassengerCard passengerCard)
+        public async Task<bool> CreatePassagnerCardAsync(PassengerCard passengerCard)
         {
             try
             {

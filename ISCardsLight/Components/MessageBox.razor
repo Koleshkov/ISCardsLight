@@ -22,14 +22,14 @@
     public bool IsVisibale { get; set; }
 
     [Parameter]
-    public Action ButtonAction { get; set; } 
+    public Action ButtonAction { get; set; }
 
     [Parameter]
     public string ButtonTitle { get; set; } = "Ok";
 
     public MessageBox()
     {
-        ButtonAction += CloseAction;
+        ButtonAction = CloseAction;
     }
 
     private void CloseAction()

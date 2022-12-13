@@ -1,5 +1,6 @@
 using ISCardsLight.PageModels;
 using ISCardsLight.Services.PassengerCardServices;
+using ISCardsLight.Services.SafetyCardServices;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -20,10 +21,11 @@ namespace ISCardsLight
 
             //Add Services
             services.AddTransient<IPassengerCardService, PassengerCardService>();
-            //Add PageModels
-            var serviceProvider = services.BuildServiceProvider();
+            services.AddTransient<ISafetyCardService, SafetyCardService>();
 
+            //Add PageModels
             services.AddTransient<PassengerCardPageModel>();
+            services.AddTransient<SafetyCardPageModel>();
 
             await builder.Build().RunAsync();
         }
