@@ -18,9 +18,21 @@
     margin: 0;
 }
 
+.navbar_item {
+    color: #F5C344;
+    text-decoration: none;
+}
+
+.navbar_item:hover {
+    color: #A6842E;
+    transition:0.5s;
+}
+
 @media (max-width:960px) {
     .horizontal_stacklayout {
         flex-direction: column-reverse;
         display:flex;
     }
+
+    
 }
