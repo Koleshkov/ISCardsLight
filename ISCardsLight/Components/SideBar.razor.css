@@ -46,7 +46,7 @@ span {
 
 @media (max-width:960px) {
     .sidebar_body {
-        background-color: red;
+
         top: unset;
         bottom: 0;
         width: 100%;
