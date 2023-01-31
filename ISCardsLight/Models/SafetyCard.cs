@@ -12,7 +12,7 @@ namespace ISCardsLight.Models
         [Required(ErrorMessage = "Введите должность")]
         public string Position { get; set; } = "";
 
-        [Required(ErrorMessage = "Введите должность")]
+        [Required(ErrorMessage = "Введите номер телефона")]
         [Phone(ErrorMessage = "Неврный формат номера телефона")]
         public string Phone { get; set; } = "";
 
@@ -41,7 +41,6 @@ namespace ISCardsLight.Models
         [Required(ErrorMessage = "Введите причины")]
         public string Reasons { get; set; } = "";
 
-        [Required(ErrorMessage = "Введите планируемые мероприятия")]
         public string PlannedEvents { get; set; } = "";
 
         [Required]
