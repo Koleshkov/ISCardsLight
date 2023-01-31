@@ -17,7 +17,7 @@ namespace ISCardsLight.Models
         public string FullName => $"{SecondName} {FirstName} {MiddleName}";
         public string ShortName => $"{SecondName} {FirstName[0]}.{MiddleName[0]}.";
 
-        public DateTime CreationDate => DateTime.Now;
+        public DateTime CreationDate { get; set; } = DateTime.Now;
 
         public string Responsible { get; set; } = "";
 

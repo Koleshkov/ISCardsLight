@@ -35,33 +35,41 @@
                 <label class="input_title">Фамилия:</label>
                 <ValidationMessage For="@(()=>@pagemodel.PassengerCard.SecondName)" />
                 <InputText class="form-control" Placeholder="Иванов"
-                           @bind-Value="@pagemodel.PassengerCard.SecondName" />
+                @bind-Value="@pagemodel.PassengerCard.SecondName" />
             </div>
             <div class="input_group">
                 <label class="input_title">Имя:</label>
                 <ValidationMessage For="@(()=>@pagemodel.PassengerCard.FirstName)" />
                 <InputText class="form-control" Placeholder="Иван"
-                           @bind-Value="@pagemodel.PassengerCard.FirstName" />
+                @bind-Value="@pagemodel.PassengerCard.FirstName" />
             </div>
+
+
             <div class="input_group">
                 <label class="input_title">Отчество:</label>
                 <ValidationMessage For="@(()=>@pagemodel.PassengerCard.MiddleName)" />
                 <InputText class="form-control" Placeholder="Иванович"
-                           @bind-Value="@pagemodel.PassengerCard.MiddleName" />
-
+                @bind-Value="@pagemodel.PassengerCard.MiddleName" />
             </div>
+
+            <div class="input_group">
+                <label class="input_title">Дата наблюдения:</label>
+                <InputDate class="form-control"
+                @bind-Value="@pagemodel.PassengerCard.CreationDate"/>
+            </div>
+
             <label class="title">Информация о транспортном средстве</label>
             <div class="input_group">
                 <label class="input_title">Наименование подрядной организации:</label>
                 <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NameOfOrganization)" />
                 <InputText class="form-control" Placeholder="OOO Транспорт"
-                           @bind-Value="@pagemodel.PassengerCard.NameOfOrganization" />
+                @bind-Value="@pagemodel.PassengerCard.NameOfOrganization" />
             </div>
             <div class="input_group">
                 <label class="input_title">Номер транспортного средства:</label>
                 <ValidationMessage For="@(()=>@pagemodel.PassengerCard.NumberOfAuto)" />
                 <InputText class="form-control" Placeholder="A123AA 99"
-                           @bind-Value="@pagemodel.PassengerCard.NumberOfAuto" />
+                @bind-Value="@pagemodel.PassengerCard.NumberOfAuto" />
             </div>
             <div class="input_group">
                 <label class="input_title">Тип транспортного средства:</label>
@@ -230,25 +238,25 @@
             <label class="title">Коментарий пассажира:</label>
             <div class="input_group">
                 <InputTextArea class="form-control" rows="6"
-                               @bind-Value="@pagemodel.PassengerCard.PassengerComment" />
+                @bind-Value="@pagemodel.PassengerCard.PassengerComment" />
             </div>
             <label class="title">Незамедлительные действия:</label>
             <div class="input_group">
                 <InputTextArea class="form-control" rows="6"
-                               @bind-Value="@pagemodel.PassengerCard.Actions" />
+                @bind-Value="@pagemodel.PassengerCard.Actions" />
             </div>
 
             <label class="title">Ответственный</label>
             <div class="input_group">
                 <label class="input_title">ФИО:</label>
                 <InputText class="form-control" Placeholder="Иванов Иван Иванович"
-                           @bind-Value="@pagemodel.PassengerCard.Responsible" />
+                @bind-Value="@pagemodel.PassengerCard.Responsible" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Срок исполнения:</label>
                 <InputDate class="form-control"
-                           @bind-Value="@pagemodel.PassengerCard.Deadline" />
+                @bind-Value="@pagemodel.PassengerCard.Deadline" />
             </div>
         </StackLayout>
     </StackLayout>

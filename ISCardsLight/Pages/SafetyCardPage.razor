@@ -25,42 +25,48 @@
                 <label class="input_title">Фамилия:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.SecondName)" />
                 <InputText class="form-control" Placeholder="Иванов"
-                           @bind-Value="@pagemodel.SafetyCard.SecondName" />
+                @bind-Value="@pagemodel.SafetyCard.SecondName" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Имя:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.FirstName)" />
                 <InputText class="form-control" Placeholder="Иван"
-                           @bind-Value="@pagemodel.SafetyCard.FirstName" />
+                @bind-Value="@pagemodel.SafetyCard.FirstName" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Отчество:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.MiddleName)" />
                 <InputText class="form-control" Placeholder="Иванович"
-                           @bind-Value="@pagemodel.SafetyCard.MiddleName" />
+                @bind-Value="@pagemodel.SafetyCard.MiddleName" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Должность:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Position)" />
                 <InputText class="form-control" Placeholder="Должность"
-                           @bind-Value="@pagemodel.SafetyCard.Position" />
+                @bind-Value="@pagemodel.SafetyCard.Position" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Телефон:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Phone)" />
                 <InputText class="form-control" Placeholder="+79991236547"
-                           @bind-Value="@pagemodel.SafetyCard.Phone" />
+                @bind-Value="@pagemodel.SafetyCard.Phone" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Email:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Email)" />
                 <InputText class="form-control" Placeholder="email@mail.ru"
-                           @bind-Value="@pagemodel.SafetyCard.Email" />
+                @bind-Value="@pagemodel.SafetyCard.Email" />
+            </div>
+
+            <div class="input_group">
+                <label class="input_title">Дата наблюдения:</label>
+                <InputDate class="form-control"
+                @bind-Value="@pagemodel.SafetyCard.CreationDate" />
             </div>
 
             <label class="title">Место, где наблюдалась ситуация</label>
@@ -69,21 +75,21 @@
                 <label class="input_title">Организация:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Organization)" />
                 <InputText class="form-control"
-                           @bind-Value="@pagemodel.SafetyCard.Organization" />
+                @bind-Value="@pagemodel.SafetyCard.Organization" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Подразделение:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Department)" />
                 <InputText class="form-control"
-                           @bind-Value="@pagemodel.SafetyCard.Department" />
+                @bind-Value="@pagemodel.SafetyCard.Department" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Объект:</label>
                 <ValidationMessage For="@(()=>@pagemodel.SafetyCard.JobObject)" />
                 <InputText class="form-control"
-                           @bind-Value="@pagemodel.SafetyCard.JobObject" />
+                @bind-Value="@pagemodel.SafetyCard.JobObject" />
             </div>
 
         </StackLayout>
@@ -101,38 +107,38 @@
             <div class="input_group">
                 <label class="input_title">Краткое описание ситуации:</label>
                 <InputTextArea class="form-control" rows="3"
-                               @bind-Value="@pagemodel.SafetyCard.Description" />
+                @bind-Value="@pagemodel.SafetyCard.Description" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Меры, принятые на месте:</label>
                 <InputTextArea class="form-control" rows="3"
-                               @bind-Value="@pagemodel.SafetyCard.Actions" />
+                @bind-Value="@pagemodel.SafetyCard.Actions" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Причины:</label>
                 <InputTextArea class="form-control" rows="3"
-                               @bind-Value="@pagemodel.SafetyCard.Reasons" />
+                @bind-Value="@pagemodel.SafetyCard.Reasons" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Планируемые мероприятия:</label>
                 <InputTextArea class="form-control" rows="3"
-                               @bind-Value="@pagemodel.SafetyCard.PlannedEvents" />
+                @bind-Value="@pagemodel.SafetyCard.PlannedEvents" />
             </div>
 
             <label class="title">Ответсвенный</label>
             <div class="input_group">
                 <label class="input_title">ФИО:</label>
                 <InputText class="form-control" Placeholder="Иванов Иван Иванович"
-                           @bind-Value="@pagemodel.SafetyCard.Responsible" />
+                @bind-Value="@pagemodel.SafetyCard.Responsible" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Срок исполнения:</label>
                 <InputDate class="form-control"
-                           @bind-Value="@pagemodel.SafetyCard.Deadline" />
+                @bind-Value="@pagemodel.SafetyCard.Deadline" />
             </div>
 
             <div class="input_group">
