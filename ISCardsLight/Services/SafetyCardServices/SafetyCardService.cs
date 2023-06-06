@@ -47,7 +47,7 @@ namespace ISCardsLight.Services.SafetyCardServices
                     buffer = await package.GetAsByteArrayAsync();
 
                     await js.InvokeVoidAsync(
-                    "saveAsFile",
+                    "save AsFile",
                     $"{safetyCard.CardName}.xlsx",
                     Convert.ToBase64String(buffer)
                     );
