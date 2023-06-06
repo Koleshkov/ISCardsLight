@@ -19,6 +19,7 @@ namespace ISCardsLight.Models
 
         public DateTime CreationDate { get; set; } = DateTime.Now;
 
+        [Required(ErrorMessage ="Назначьте ответственное лицо")]
         public string Responsible { get; set; } = "";
 
         public DateTime? Deadline { get; set; } 
