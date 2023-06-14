@@ -1,5 +1,5 @@
 ﻿@page "/"
-@page "/PassengerCard"
+@page "/PassengerCard" 
 
 @using ISCardsLight.PageModels
 @inject PassengerCardPageModel pagemodel;
@@ -55,7 +55,7 @@
             <div class="input_group">
                 <label class="input_title">Дата наблюдения:</label>
                 <InputDate class="form-control"
-                @bind-Value="@pagemodel.PassengerCard.CreationDate"/>
+                @bind-Value="@pagemodel.PassengerCard.CreationDate" />
             </div>
 
             <label class="title">Информация о транспортном средстве</label>

@@ -13,10 +13,10 @@ namespace ISCardsLight.Models
         public override string CardName => $"{CreationDate.ToShortDateString()}_{CardType}_{ShortName}";
         public bool WorkStopped { get; set; }
 
-        [Required(ErrorMessage = "Введите название организации")]
+        [Required(ErrorMessage = "Укажите название организации")]
         public string NameOfOrganization { get; set; } = "";
 
-        [Required(ErrorMessage = "Введите гос. номер автомобиля")]
+        [Required(ErrorMessage = "Укажите гос. номер автомобиля")]
         public string NumberOfAuto { get; set; } = "";
         public string TypeOfAuto { get; set; } = "0";
         public bool EmergencyKit { get; set; } = true;
@@ -56,5 +56,7 @@ namespace ISCardsLight.Models
         public bool Ground { get; set; }
         public string PassengerComment { get; set; } = "";
         public string Actions { get; set; } = "";
+        public string Responsible { get; set; } = "";
+        public DateTime? Deadline { get; set; }
     }
 }

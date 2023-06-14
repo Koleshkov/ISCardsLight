@@ -106,24 +106,28 @@
 
             <div class="input_group">
                 <label class="input_title">Краткое описание ситуации:</label>
+                <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Description)" />
                 <InputTextArea class="form-control" rows="3"
                 @bind-Value="@pagemodel.SafetyCard.Description" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Меры, принятые на месте:</label>
+                <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Actions)" />
                 <InputTextArea class="form-control" rows="3"
                 @bind-Value="@pagemodel.SafetyCard.Actions" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Причины:</label>
+                <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Reasons)" />
                 <InputTextArea class="form-control" rows="3"
                 @bind-Value="@pagemodel.SafetyCard.Reasons" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Планируемые мероприятия:</label>
+                <ValidationMessage For="@(()=>@pagemodel.SafetyCard.PlannedEvents)" />
                 <InputTextArea class="form-control" rows="3"
                 @bind-Value="@pagemodel.SafetyCard.PlannedEvents" />
             </div>
@@ -131,12 +135,14 @@
             <label class="title">Ответсвенный</label>
             <div class="input_group">
                 <label class="input_title">ФИО:</label>
+                <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Responsible)" />
                 <InputText class="form-control" Placeholder="Иванов Иван Иванович"
                 @bind-Value="@pagemodel.SafetyCard.Responsible" />
             </div>
 
             <div class="input_group">
                 <label class="input_title">Срок исполнения:</label>
+                <ValidationMessage For="@(()=>@pagemodel.SafetyCard.Deadline)" />
                 <InputDate class="form-control"
                 @bind-Value="@pagemodel.SafetyCard.Deadline" />
             </div>
